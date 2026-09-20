@@ -4,9 +4,13 @@
     margin: 0;
 }
 
+
 body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background: linear-gradient(135deg, #0a2e2e 0%, #0f3d3d 50%, #0a1f2e 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     min-height: 100vh;
     overflow-x: hidden;
     margin: 0;
@@ -37,6 +41,10 @@ header {
     text-decoration: none;
 }
 
+.nav-links {
+    position: relative;
+}
+
 .nav-links ul {
     list-style: none;
     display: flex;
@@ -50,6 +58,20 @@ header {
     display: inline-block;
     padding-bottom: 8px;
     transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 4px;
+
 }
 
 .nav-links ul a:hover,
@@ -131,7 +153,6 @@ header {
     padding-right: 5px;
 }
 
-/* main section */
 main {
     display: flex;
     justify-content: space-between;
@@ -179,7 +200,6 @@ main {
     padding-left: 5px;
 }
 
-/* right section */
 .right-cont {
     display: flex;
     gap: 15px;
@@ -333,99 +353,72 @@ main {
     overflow: visible;
 }
 
-@media (max-width: 1150px) {
-    .container {
-        width: min(calc(100% - 64px), 900px);
+@media (max-width:1270px) {
+    .back-icon {
+        display: none;
     }
-
-    header {
-        flex-wrap: wrap;
-        gap: 14px 24px;
-    }
-
-    .nav-links {
-        order: 3;
-        width: 100%;
-    }
-
-    .nav-links ul {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
     main {
         flex-direction: column;
-        align-items: stretch;
-        gap: 30px;
     }
-
     .left-cont {
         width: 100%;
-        max-width: 760px;
-    }
-
-    .right-cont {
-        align-self: center;
     }
 }
 
+@media (max-width:880px) {
+    .nav-links ul {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links ul.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        background: linear-gradient(135deg, #0a2e2e 0%, #0f3d3d 50%, #0a1f2e 100%);
+        width: 220px;
+        padding: 20px;
+        z-index: 100;
+    }
+}
 @media (max-width: 700px) {
     .container {
-        width: min(calc(100% - 32px), 600px);
+        width: min(calc(100% - 32px), 1400px);
     }
 
     header {
-        padding: 14px 0;
+        gap: 12px;
     }
 
-    .nav-links ul {
-        gap: 10px 16px;
+    .logo h4 {
+        font-size: 17px;
     }
 
-    .nav-links ul a {
-        font-size: 14px;
+    .login {
+        gap: 4px;
     }
 
-    .left-cont h1 {
-        font-size: clamp(36px, 10vw, 52px);
-        line-height: 1.12;
+    .login .ita i {
+        padding: 7px;
     }
 
-    .left-cont > p[style*="font-size"] {
-        font-size: clamp(16px, 4.5vw, 17px) !important;
-        line-height: 1.55;
-    }
-
-    .left-cont > svg {
-        width: 100%;
-        max-width: 600px;
-        height: auto;
+    .login .bt-login {
+        padding: 7px 12px;
     }
 
     .right-cont {
-        display: grid;
-        grid-template-columns: 1.48fr 1fr;
-        gap: 2.6%;
         width: 100%;
-        max-width: 585px;
-        height: auto;
-        aspect-ratio: 585 / 640;
+        gap: 10px;
     }
 
     .left-cards,
     .righ-cards {
-        flex: none;
-        width: auto;
-        height: 100%;
-        gap: 3.125%;
-    }
-
-    .left-cards {
-        grid-column: 1;
-    }
-
-    .righ-cards {
-        grid-column: 2;
+        flex: 1 1 0;
+        gap: 10px;
     }
 
     .card-one,
@@ -436,174 +429,33 @@ main {
     }
 
     .card-one {
-        height: 68.75%;
-    }
-
-    .card-thr {
-        height: 28.125%;
+        height: 340px;
     }
 
     .card-two {
-        height: 45.3125%;
+        height: 220px;
     }
 
     .card-four {
-        height: 51.5625%;
+        height: 260px;
     }
 
-    .card-thr p {
-        margin: 18% 0 6% 8% !important;
-        font-size: clamp(9px, 2.5vw, 14px);
+    .card-thr {
+        height: 150px;
     }
 
     .card-thr .imgs {
-        padding-left: 8%;
+        padding-left: 12px;
     }
 
     .card-thr .group,
     .card-thr .group1 {
-        width: clamp(24px, 7vw, 50px);
-        height: clamp(24px, 7vw, 50px);
-        border-width: 2px;
-        font-size: clamp(8px, 2.2vw, 16px);
-    }
-
-    .card-thr .group,
-    .card-thr .group1 {
-        margin-left: clamp(-12px, -2vw, -6px);
-    }
-
-    .card-thr .group:first-child {
-        margin-left: 0;
-    }
-
-    .card-two div {
-        margin: 10% 8%;
-        font-size: clamp(11px, 3vw, 18px);
-    }
-
-    .center-btn {
-        width: clamp(62px, 16vw, 100px);
-        height: clamp(62px, 16vw, 100px);
-        outline-width: clamp(4px, 1.2vw, 7px);
-    }
-
-    .center-btn svg {
-        width: 60%;
-        height: 60%;
-    }
-
-    .back-icon {
-        inset: 0;
-    }
-
-    .back-icon svg {
-        left: 55%;
-        top: 50px;
-    }
-}
-
-@media (max-width: 520px) {
-    header {
-        gap: 8px 12px;
-    }
-
-    .nav-links {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 4px;
-    }
-
-    .nav-links ul {
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        width: max-content;
-        min-width: 100%;
-        padding: 0 2px;
-    }
-
-    .left-cont > p:first-child {
-        margin-bottom: 4px;
-    }
-
-    .left-cont .bt-join {
-        margin-top: 18px;
-        margin-bottom: 20px;
-    }
-
-    .left-cont > svg {
-        margin-top: -12px;
-    }
-}
-
-@media (max-width: 430px) {
-    .logo h4 {
-        font-size: 17px;
-    }
-
-    .logo svg {
-        width: 28px;
-        height: 45px;
-    }
-
-    .login {
-        gap: 4px;
-    }
-
-    .login .ita i {
-        padding: 7px;
-        font-size: 16px;
-    }
-
-    .login .bt-login {
-        padding: 7px 12px;
-    }
-
-    .nav-links ul a {
-        font-size: 13px;
-    }
-
-    .right-cont {
-        width: 100%;
-    }
-
-    .card-one {
-        border-bottom-right-radius: 22px;
-    }
-
-    .card-two {
-        border-radius: 22px 12px 0 0;
-    }
-
-    .card-thr {
-        border-radius: 0 16px 52px 16px;
-    }
-
-    .card-four {
-        border-radius: 0 16px 16px 52px;
-    }
-}
-
-@media (max-width: 350px) {
-    .container {
-        width: min(calc(100% - 24px), 600px);
-    }
-
-    .logo h4 {
-        font-size: 15px;
-    }
-
-    .login .bt-login {
-        padding: 7px 10px;
+        width: 38px;
+        height: 38px;
         font-size: 12px;
     }
 
-    .left-cont h1 {
-        font-size: 36px;
-    }
-
     .center-btn {
-        width: 58px;
-        height: 58px;
+        display: none;
     }
 }
