@@ -171,6 +171,11 @@ main {
     width: 50%;
 }
 
+.left-cont > svg {
+    width: min(100%, 600px);
+    height: auto;
+}
+
 .left-cont h1 span {
     background-image: linear-gradient(90deg, #76bc43, #5b9e47, #418252);
     background-clip: text;
