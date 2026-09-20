@@ -370,6 +370,13 @@ main {
     }
 }
 
+@media (max-width: 1260px) {
+    .left-cont > svg {
+        display: block;
+        margin-inline: auto;
+    }
+}
+
 @media (max-width:880px) {
     .nav-links ul {
         display: none;
